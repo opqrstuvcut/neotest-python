@@ -209,6 +209,12 @@ function M.get_docker_python_command(root, docker_config)
     vim.list_extend(docker_cmd, args)
     vim.list_extend(docker_cmd, { "-v", root .. ":" .. workdir, "-w", workdir, image })
   end
+  
+   if lib.files.exists("uv.lock") then
+    table.insert(docker_cmd, "uv")
+    table.insert(docker_cmd, "run")
+  end
+  table.insert(docker_cmd, "python")
 
   table.insert(docker_cmd, "python")
   return docker_cmd
