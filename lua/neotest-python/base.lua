@@ -214,7 +214,6 @@ function M.get_docker_python_command(root, docker_config)
     table.insert(docker_cmd, "uv")
     table.insert(docker_cmd, "run")
   end
-  table.insert(docker_cmd, "python")
 
   table.insert(docker_cmd, "python")
   return docker_cmd
